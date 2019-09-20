@@ -6,7 +6,7 @@
 #    By: jconcent <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/12 12:27:21 by jconcent          #+#    #+#              #
-#    Updated: 2019/09/16 17:00:06 by jconcent         ###   ########.fr        #
+#    Updated: 2019/09/20 13:15:18 by jconcent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
 
-INCLUDES = ./
+INCLUDES = ./includes
 
 SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c \
 	  ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c ft_memset.c \
@@ -30,12 +30,12 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) libft.h
+$(NAME): $(OBJ) $(INCLUDES)/libft.h
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
 %.o: %.c
-	@gcc $(FLAGS) -c $< -I.
+	@gcc $(FLAGS) -c $< -I$(INCLUDES)
 
 clean:
 	@/bin/rm -f $(OBJ)

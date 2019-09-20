@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 static char		**ft_split_creator(char const *s, char c,
 						int word_count, int max_word_len)
